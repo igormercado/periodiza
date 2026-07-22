@@ -1,0 +1,8 @@
+# Segredos — nunca devem entrar no histórico do Git
+.env
+.env.*
+*.pem
+*.key
+
+# Dependências — pasta gigante, reconstruída automaticamente, não precisa ir pro Git
+node_modules/
