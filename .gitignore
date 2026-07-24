@@ -6,3 +6,9 @@
 
 # Dependências — pasta gigante, reconstruída automaticamente, não precisa ir pro Git
 node_modules/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
