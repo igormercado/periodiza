@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Evolução — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .valor-grande {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .delta {
+    font-size: 0.85rem;
+    color: var(--texto-mudo);
+    margin: 2px 0 12px;
+  }
+
+  svg.sparkline {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+
+  .rotulo-secao {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--texto-mudo);
+    margin: 0 0 14px;
+  }
+
+  .linha-medida {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid var(--borda);
+    font-size: 0.92rem;
+  }
+
+  .linha-medida:first-of-type {
+    border-top: none;
+  }
+
+  .linha-medida .local {
+    color: var(--texto);
+  }
+
+  .linha-medida .valores {
+    text-align: right;
+  }
+
+  .linha-medida .valor-atual {
+    font-weight: 600;
+  }
+
+  .linha-medida .variacao {
+    color: var(--texto-mudo);
+    font-size: 0.8rem;
+  }
+
+  .bloco-exercicio {
+    margin-bottom: 22px;
+  }
+
+  .bloco-exercicio:last-child {
+    margin-bottom: 0;
+  }
+
+  .bloco-exercicio h3 {
+    font-size: 0.95rem;
+    margin: 0 0 2px;
+  }
+
+  details.tabela-detalhe summary {
+    color: var(--acento);
+    font-size: 0.82rem;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+
+  table.tabela-valores {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+
+  table.tabela-valores th {
+    text-align: left;
+    color: var(--texto-mudo);
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0 6px 6px 0;
+  }
+
+  table.tabela-valores td {
+    padding: 5px 6px 5px 0;
+    border-top: 1px solid var(--borda);
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <h1 class="titulo-tela">Painel de Evolução</h1>
+    <p class="subtitulo-tela">Como você mudou desde a primeira avaliação física.</p>
+
+    <div class="cartao">
+      <p class="rotulo-secao">Peso</p>
+      <div class="valor-grande">80,4 kg</div>
+      <p class="delta">▲ +2,4 kg desde 01/05/2026</p>
+      <svg class="sparkline" viewBox="0 0 240 60" preserveAspectRatio="none">
+        <polyline points="10,50 80,36.7 150,23.3 220,10" fill="none" stroke="#e06b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="220" cy="10" r="4" fill="#e06b2e"/>
+      </svg>
+      <details class="tabela-detalhe">
+        <summary>Ver tabela</summary>
+        <table class="tabela-valores">
+          <tr><th>Data</th><th>Peso</th></tr>
+          <tr><td>01/05/2026</td><td>78,0 kg</td></tr>
+          <tr><td>29/05/2026</td><td>78,8 kg</td></tr>
+          <tr><td>26/06/2026</td><td>79,6 kg</td></tr>
+          <tr><td>20/07/2026</td><td>80,4 kg</td></tr>
+        </table>
+      </details>
+    </div>
+
+    <div class="cartao">
+      <p class="rotulo-secao">Percentual de gordura</p>
+      <div class="valor-grande">15,6%</div>
+      <p class="delta">▼ −0,9 p.p. desde 01/05/2026</p>
+      <svg class="sparkline" viewBox="0 0 240 60" preserveAspectRatio="none">
+        <polyline points="10,10 80,23.3 150,36.7 220,50" fill="none" stroke="#e06b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="220" cy="50" r="4" fill="#e06b2e"/>
+      </svg>
+      <details class="tabela-detalhe">
+        <summary>Ver tabela</summary>
+        <table class="tabela-valores">
+          <tr><th>Data</th><th>Gordura</th></tr>
+          <tr><td>01/05/2026</td><td>16,5%</td></tr>
+          <tr><td>29/05/2026</td><td>16,2%</td></tr>
+          <tr><td>26/06/2026</td><td>15,9%</td></tr>
+          <tr><td>20/07/2026</td><td>15,6%</td></tr>
+        </table>
+      </details>
+    </div>
+
+    <div class="cartao">
+      <p class="rotulo-secao">Medidas corporais (desde a avaliação anterior)</p>
+      <div class="linha-medida">
+        <span class="local">Braço</span>
+        <span class="valores"><span class="valor-atual">34,8 cm</span><br><span class="variacao">▲ +0,8 cm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Cintura</span>
+        <span class="valores"><span class="valor-atual">80,5 cm</span><br><span class="variacao">▼ −1,5 cm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Quadril</span>
+        <span class="valores"><span class="valor-atual">98,2 cm</span><br><span class="variacao">▲ +0,2 cm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Coxa</span>
+        <span class="valores"><span class="valor-atual">57,1 cm</span><br><span class="variacao">▲ +1,1 cm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Panturrilha</span>
+        <span class="valores"><span class="valor-atual">37,4 cm</span><br><span class="variacao">▲ +0,4 cm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Tórax</span>
+        <span class="valores"><span class="valor-atual">100,2 cm</span><br><span class="variacao">▲ +2,2 cm</span></span>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <p class="rotulo-secao">Dobras cutâneas (desde a avaliação anterior)</p>
+      <div class="linha-medida">
+        <span class="local">Tríceps</span>
+        <span class="valores"><span class="valor-atual">10,5 mm</span><br><span class="variacao">▼ −1,5 mm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Subescapular</span>
+        <span class="valores"><span class="valor-atual">12,8 mm</span><br><span class="variacao">▼ −1,2 mm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Suprailíaca</span>
+        <span class="valores"><span class="valor-atual">14,0 mm</span><br><span class="variacao">▼ −2,0 mm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Abdominal</span>
+        <span class="valores"><span class="valor-atual">17,5 mm</span><br><span class="variacao">▼ −2,5 mm</span></span>
+      </div>
+      <div class="linha-medida">
+        <span class="local">Coxa</span>
+        <span class="valores"><span class="valor-atual">13,5 mm</span><br><span class="variacao">▼ −1,5 mm</span></span>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <p class="rotulo-secao">Carga por exercício ao longo do tempo</p>
+
+      <div class="bloco-exercicio">
+        <h3>Supino reto</h3>
+        <div class="delta" style="margin-top:0">▲ +10 kg desde 12/06/2026 · atual 65 kg</div>
+        <svg class="sparkline" viewBox="0 0 240 60" preserveAspectRatio="none">
+          <polyline points="10,50 80,38 150,30 220,10" fill="none" stroke="#e06b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="220" cy="10" r="4" fill="#e06b2e"/>
+        </svg>
+        <details class="tabela-detalhe">
+          <summary>Ver tabela</summary>
+          <table class="tabela-valores">
+            <tr><th>Data</th><th>Carga máxima</th></tr>
+            <tr><td>12/06/2026</td><td>55 kg</td></tr>
+            <tr><td>26/06/2026</td><td>58 kg</td></tr>
+            <tr><td>10/07/2026</td><td>60 kg</td></tr>
+            <tr><td>22/07/2026</td><td>65 kg</td></tr>
+          </table>
+        </details>
+      </div>
+
+      <div class="bloco-exercicio">
+        <h3>Leg press</h3>
+        <div class="delta" style="margin-top:0">▲ +20 kg desde 08/06/2026 · atual 150 kg</div>
+        <svg class="sparkline" viewBox="0 0 240 60" preserveAspectRatio="none">
+          <polyline points="10,50 80,40 150,30 220,10" fill="none" stroke="#e06b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="220" cy="10" r="4" fill="#e06b2e"/>
+        </svg>
+        <details class="tabela-detalhe">
+          <summary>Ver tabela</summary>
+          <table class="tabela-valores">
+            <tr><th>Data</th><th>Carga máxima</th></tr>
+            <tr><td>08/06/2026</td><td>130 kg</td></tr>
+            <tr><td>22/06/2026</td><td>135 kg</td></tr>
+            <tr><td>06/07/2026</td><td>140 kg</td></tr>
+            <tr><td>20/07/2026</td><td>150 kg</td></tr>
+          </table>
+        </details>
+      </div>
+    </div>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html" class="ativo"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+</body>
+</html>

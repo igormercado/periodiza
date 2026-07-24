@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caderno de Treinos — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .cabecalho-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .cabecalho-lista .titulo-tela {
+    margin: 0;
+  }
+
+  .cabecalho-lista a.btn {
+    width: auto;
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 0.9rem;
+  }
+
+  details.cartao {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  details.cartao summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  details.cartao summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .linha-topo-treino {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .nome-treino {
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+
+  .meta-treino {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--texto-mudo);
+  }
+
+  .resumo-texto {
+    font-size: 0.85rem;
+    color: var(--texto-mudo);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .corpo-serie {
+    border-top: 1px solid var(--borda);
+    padding: 14px 18px 18px;
+  }
+
+  .corpo-serie h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--texto-mudo);
+    margin: 0 0 10px;
+  }
+
+  table.series {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+  }
+
+  table.series th {
+    text-align: left;
+    color: var(--texto-mudo);
+    font-weight: 500;
+    font-size: 0.78rem;
+    padding: 0 6px 6px 0;
+  }
+
+  table.series td {
+    padding: 5px 6px 5px 0;
+    border-top: 1px solid var(--borda);
+  }
+
+  .texto-bruto-completo {
+    font-size: 0.88rem;
+    color: var(--texto);
+    background: var(--bg-elevado-2);
+    border-radius: var(--raio-pequeno);
+    padding: 12px;
+  }
+
+  .texto-bruto-completo.vazio {
+    color: var(--texto-mudo);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <div class="cabecalho-lista">
+      <div>
+        <h1 class="titulo-tela">Caderno de Treinos</h1>
+        <p class="subtitulo-tela" style="margin-bottom:0">Do treino mais novo para o mais antigo. Toque num treino para ver as séries.</p>
+      </div>
+    </div>
+
+    <a href="novo-treino-registrado.html" class="btn btn-primario espaco-topo" style="margin-bottom:20px; display:flex;">+ Registrar treino</a>
+
+    <details class="cartao" open>
+      <summary>
+        <div class="linha-topo-treino">
+          <span class="nome-treino">Treino B — Costas/Bíceps</span>
+          <span class="status status-em_andamento">Em andamento</span>
+        </div>
+        <div class="meta-treino">
+          <span>23/07/2026 · hoje</span>
+        </div>
+        <div class="resumo-texto">Ainda sem observações registradas.</div>
+      </summary>
+      <div class="corpo-serie">
+        <h3>Séries lançadas</h3>
+        <table class="series">
+          <tr><th>Exercício</th><th>Série</th><th>Reps</th><th>Carga</th></tr>
+          <tr><td>Puxada frontal</td><td>1</td><td>12</td><td>48 kg</td></tr>
+          <tr><td>Puxada frontal</td><td>2</td><td>10</td><td>52 kg</td></tr>
+        </table>
+        <h3>Texto colado</h3>
+        <p class="texto-bruto-completo vazio">Ainda não preenchido — treino em andamento.</p>
+      </div>
+    </details>
+
+    <details class="cartao">
+      <summary>
+        <div class="linha-topo-treino">
+          <span class="nome-treino">Treino A — Peito/Tríceps</span>
+          <span class="status status-concluido">Concluído</span>
+        </div>
+        <div class="meta-treino">
+          <span>22/07/2026</span>
+        </div>
+        <div class="resumo-texto">Supino pesado hoje, ombro direito puxou um pouco na 3ª série...</div>
+      </summary>
+      <div class="corpo-serie">
+        <h3>Séries lançadas</h3>
+        <table class="series">
+          <tr><th>Exercício</th><th>Série</th><th>Reps</th><th>Carga</th></tr>
+          <tr><td>Supino reto</td><td>1</td><td>10</td><td>60 kg</td></tr>
+          <tr><td>Supino reto</td><td>2</td><td>8</td><td>65 kg</td></tr>
+          <tr><td>Supino reto</td><td>3</td><td>6</td><td>65 kg</td></tr>
+          <tr><td>Supino inclinado (halteres)</td><td>1</td><td>10</td><td>24 kg</td></tr>
+          <tr><td>Tríceps testa</td><td>1</td><td>12</td><td>25 kg</td></tr>
+        </table>
+        <h3>Texto colado</h3>
+        <p class="texto-bruto-completo">Supino pesado hoje, senti o ombro direito puxar um pouco no fim da terceira série. Tríceps testa fácil, dava pra aumentar a carga.</p>
+      </div>
+    </details>
+
+    <details class="cartao">
+      <summary>
+        <div class="linha-topo-treino">
+          <span class="nome-treino">Treino C — Pernas/Glúteo</span>
+          <span class="status status-concluido">Concluído</span>
+        </div>
+        <div class="meta-treino">
+          <span>20/07/2026</span>
+        </div>
+        <div class="resumo-texto">Leg press subiu de carga tranquilo, cadeira extensora deu uma dor...</div>
+      </summary>
+      <div class="corpo-serie">
+        <h3>Séries lançadas</h3>
+        <table class="series">
+          <tr><th>Exercício</th><th>Série</th><th>Reps</th><th>Carga</th></tr>
+          <tr><td>Leg press</td><td>1</td><td>12</td><td>140 kg</td></tr>
+          <tr><td>Leg press</td><td>2</td><td>12</td><td>150 kg</td></tr>
+          <tr><td>Cadeira extensora</td><td>1</td><td>15</td><td>40 kg</td></tr>
+          <tr><td>Elevação pélvica</td><td>1</td><td>12</td><td>80 kg</td></tr>
+        </table>
+        <h3>Texto colado</h3>
+        <p class="texto-bruto-completo">Leg press subiu de carga tranquilo, tava fácil. Cadeira extensora deu uma dor chata no joelho direito na última série, fiquei de olho.</p>
+      </div>
+    </details>
+
+    <details class="cartao">
+      <summary>
+        <div class="linha-topo-treino">
+          <span class="nome-treino">Treino B — Costas/Bíceps</span>
+          <span class="status status-concluido">Concluído</span>
+        </div>
+        <div class="meta-treino">
+          <span>18/07/2026</span>
+        </div>
+        <div class="resumo-texto">Remada curvada difícil hoje, bíceps normal.</div>
+      </summary>
+      <div class="corpo-serie">
+        <h3>Séries lançadas</h3>
+        <table class="series">
+          <tr><th>Exercício</th><th>Série</th><th>Reps</th><th>Carga</th></tr>
+          <tr><td>Remada curvada</td><td>1</td><td>10</td><td>50 kg</td></tr>
+          <tr><td>Remada curvada</td><td>2</td><td>8</td><td>50 kg</td></tr>
+          <tr><td>Rosca direta</td><td>1</td><td>12</td><td>20 kg</td></tr>
+        </table>
+        <h3>Texto colado</h3>
+        <p class="texto-bruto-completo">Remada curvada estava difícil hoje, cansei mais que o normal. Rosca direta normal, sem dor.</p>
+      </div>
+    </details>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html" class="ativo"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+</body>
+</html>

@@ -5,78 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Periodiza — protocolo de treino que se ajusta a você</title>
 <meta name="description" content="Periodiza monta e ajusta o seu protocolo de treino com base no que você realmente faz na academia — para quem treina musculação sem acompanhamento de personal trainer.">
+<link rel="stylesheet" href="estilo.css">
 <style>
-  :root {
-    --bg: #0b0b0c;
-    --text: #f2f2f0;
-    --muted: #a8a8a8;
-    --accent: #e06b2e;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 24px;
-  }
-
-  main {
-    max-width: 480px;
-    width: 100%;
+  .hero {
     text-align: center;
+    padding-top: 40px;
   }
 
-  .marca {
+  .marca-traco {
     width: 40px;
     height: 4px;
-    background: var(--accent);
+    background: var(--acento);
     border-radius: 2px;
     margin: 0 auto 28px;
   }
 
-  h1 {
+  .hero h1 {
     font-size: clamp(2rem, 9vw, 3rem);
     line-height: 1.1;
     margin: 0 0 20px;
     letter-spacing: -0.02em;
   }
 
-  h1 span {
-    color: var(--accent);
+  .hero h1 span {
+    color: var(--acento);
   }
 
-  p.promessa {
+  .hero p.promessa {
     font-size: clamp(1rem, 4.2vw, 1.15rem);
     line-height: 1.55;
-    color: var(--muted);
-    margin: 0;
+    color: var(--texto-mudo);
+    margin: 0 0 32px;
     overflow-wrap: break-word;
+  }
+
+  .hero .acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 </style>
 </head>
 <body>
-  <main>
-    <div class="marca" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="index.html" class="marca">Periodi<span>za</span></a>
+    <nav class="acoes-publicas">
+      <a href="entrar.html" class="btn-texto">Entrar</a>
+    </nav>
+  </header>
+
+  <main class="tela hero">
+    <div class="marca-traco" aria-hidden="true"></div>
     <h1>Periodi<span>za</span></h1>
     <p class="promessa">
       Periodiza monta e ajusta o seu protocolo de treino com base no que você
       realmente faz na academia — para quem treina musculação sem
       acompanhamento de personal trainer.
     </p>
+    <div class="acoes">
+      <a href="entrar.html?modo=cadastro" class="btn btn-primario">Criar conta</a>
+      <a href="entrar.html" class="btn btn-secundario">Já tenho conta — entrar</a>
+    </div>
   </main>
+
 </body>
 </html>

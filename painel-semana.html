@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel da semana — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .cartao-dia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--texto);
+  }
+
+  .cartao-dia.descanso {
+    opacity: 0.6;
+  }
+
+  .info-dia .dia-semana {
+    font-size: 0.78rem;
+    color: var(--texto-mudo);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-dia .nome-treino-dia {
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin-top: 4px;
+  }
+
+  .tag-hoje {
+    background: var(--acento);
+    color: #1a0d05;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .seta {
+    color: var(--texto-mudo);
+    font-size: 1.2rem;
+  }
+
+  a.cartao-dia:hover {
+    border-color: var(--acento);
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <h1 class="titulo-tela">Painel da semana</h1>
+    <p class="subtitulo-tela">O planejamento vigente do seu protocolo.</p>
+
+    <div class="cartao-destaque">
+      <div class="mudo" style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.03em;">Mesociclo atual — 2º bloco</div>
+      <div style="font-weight:700; font-size:1.1rem; margin-top:4px;">Fase: Hipertrofia</div>
+      <div class="mudo" style="font-size:0.85rem; margin-top:2px;">22/06/2026 até 02/08/2026</div>
+    </div>
+
+    <a href="treino-do-dia.html" class="cartao cartao-dia">
+      <div class="info-dia">
+        <div class="dia-semana">Segunda-feira</div>
+        <div class="nome-treino-dia">Treino C — Pernas/Glúteo</div>
+      </div>
+      <span class="seta">›</span>
+    </a>
+
+    <div class="cartao cartao-dia descanso">
+      <div class="info-dia">
+        <div class="dia-semana">Terça-feira</div>
+        <div class="nome-treino-dia">Descanso</div>
+      </div>
+    </div>
+
+    <a href="treino-do-dia.html" class="cartao cartao-dia">
+      <div class="info-dia">
+        <div class="dia-semana">Quarta-feira</div>
+        <div class="nome-treino-dia">Treino A — Peito/Tríceps</div>
+      </div>
+      <span class="seta">›</span>
+    </a>
+
+    <a href="treino-do-dia.html" class="cartao cartao-dia" style="border-color:var(--acento);">
+      <div class="info-dia">
+        <div class="dia-semana">Quinta-feira <span class="tag-hoje">HOJE</span></div>
+        <div class="nome-treino-dia">Treino B — Costas/Bíceps</div>
+      </div>
+      <span class="seta">›</span>
+    </a>
+
+    <a href="treino-do-dia.html" class="cartao cartao-dia">
+      <div class="info-dia">
+        <div class="dia-semana">Sexta-feira</div>
+        <div class="nome-treino-dia">Treino A — Peito/Tríceps</div>
+      </div>
+      <span class="seta">›</span>
+    </a>
+
+    <a href="treino-do-dia.html" class="cartao cartao-dia">
+      <div class="info-dia">
+        <div class="dia-semana">Sábado</div>
+        <div class="nome-treino-dia">Treino B — Costas/Bíceps</div>
+      </div>
+      <span class="seta">›</span>
+    </a>
+
+    <div class="cartao cartao-dia descanso">
+      <div class="info-dia">
+        <div class="dia-semana">Domingo</div>
+        <div class="nome-treino-dia">Descanso</div>
+      </div>
+    </div>
+
+    <p class="mudo" style="font-size:0.82rem; text-align:center; margin-top:20px;">
+      Neste protótipo, todo dia com treino leva para a mesma tela de exemplo —
+      quando o algoritmo (dia 4) e o banco estiverem ligados, cada dia vai
+      mostrar o treino real dele.
+    </p>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html" class="ativo"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+</body>
+</html>

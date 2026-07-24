@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .abas {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .aba {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--raio-pequeno);
+    border: 1px solid var(--borda);
+    color: var(--texto-mudo);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .aba.ativa {
+    background: var(--acento-fraco);
+    border-color: var(--acento);
+    color: var(--acento);
+  }
+
+  #form-entrar, #form-cadastro {
+    display: none;
+  }
+
+  #form-entrar.mostrar, #form-cadastro.mostrar {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="marca">Periodi<span>za</span></a>
+  </header>
+
+  <main class="tela">
+    <h1 class="titulo-tela">Entrar no Periodiza</h1>
+    <p class="subtitulo-tela">Este protótipo mostra a tela, mas ainda não confere senha de verdade.</p>
+
+    <div class="abas">
+      <button type="button" class="aba ativa" id="aba-entrar" onclick="mostrarAba('entrar')">Entrar</button>
+      <button type="button" class="aba" id="aba-cadastro" onclick="mostrarAba('cadastro')">Criar conta</button>
+    </div>
+
+    <form id="form-entrar" class="mostrar" onsubmit="return tentarAcessar(event)">
+      <label for="email-entrar">E-mail</label>
+      <input type="email" id="email-entrar" value="igor@exemplo.com">
+
+      <label for="senha-entrar">Senha</label>
+      <input type="password" id="senha-entrar" value="••••••••">
+
+      <button type="submit" class="btn btn-primario espaco-topo">Entrar</button>
+    </form>
+
+    <form id="form-cadastro" onsubmit="return tentarAcessar(event)">
+      <label for="nome-cadastro">Nome</label>
+      <input type="text" id="nome-cadastro" value="Igor Mercado">
+
+      <label for="email-cadastro">E-mail</label>
+      <input type="email" id="email-cadastro" value="igor@exemplo.com">
+
+      <label for="senha-cadastro">Senha</label>
+      <input type="password" id="senha-cadastro" value="••••••••">
+
+      <button type="submit" class="btn btn-primario espaco-topo">Criar conta</button>
+    </form>
+
+    <div class="aviso-futuro" id="aviso-login">
+      <strong>Ainda é só aparência:</strong> este formulário não confere e-mail
+      nem senha de verdade — isso passa a acontecer quando o banco de dados
+      (Supabase) estiver conectado. Por enquanto, toque abaixo para continuar
+      olhando as telas do protótipo.
+      <div class="espaco-topo">
+        <a href="cadastro-inicial.html" class="btn btn-secundario">Continuar para o protótipo →</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function mostrarAba(qual) {
+      const ehEntrar = qual === 'entrar';
+      document.getElementById('form-entrar').classList.toggle('mostrar', ehEntrar);
+      document.getElementById('form-cadastro').classList.toggle('mostrar', !ehEntrar);
+      document.getElementById('aba-entrar').classList.toggle('ativa', ehEntrar);
+      document.getElementById('aba-cadastro').classList.toggle('ativa', !ehEntrar);
+      document.getElementById('aviso-login').classList.remove('mostrar');
+    }
+
+    function tentarAcessar(evento) {
+      evento.preventDefault();
+      document.getElementById('aviso-login').classList.add('mostrar');
+      return false;
+    }
+
+    if (new URLSearchParams(window.location.search).get('modo') === 'cadastro') {
+      mostrarAba('cadastro');
+    }
+  </script>
+
+</body>
+</html>

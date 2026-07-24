@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrar treino — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .serie-item {
+    background: var(--bg-elevado-2);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-pequeno);
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+
+  .serie-item .linha-serie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .serie-item .linha-serie strong {
+    font-size: 0.85rem;
+    color: var(--texto-mudo);
+  }
+
+  .serie-item .remover {
+    background: none;
+    border: none;
+    color: var(--texto-mudo);
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .grade-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .btn-adicionar-serie {
+    background: transparent;
+    border: 1px dashed var(--borda);
+    color: var(--texto-mudo);
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <a href="caderno-treinos.html" class="btn-texto">← Voltar ao Caderno de Treinos</a>
+    <h1 class="titulo-tela espaco-topo">Registrar treino</h1>
+    <p class="subtitulo-tela">Preencha os dados do treino que você fez e as séries de cada exercício.</p>
+
+    <form onsubmit="return mostrarAvisoSalvar(event)">
+
+      <div class="cartao">
+        <label for="data-treino">Data do treino</label>
+        <input type="date" id="data-treino" value="2026-07-23">
+
+        <label for="treino-planejado">Treino planejado correspondente</label>
+        <select id="treino-planejado">
+          <option>Treino A — Peito/Tríceps</option>
+          <option selected>Treino B — Costas/Bíceps</option>
+          <option>Treino C — Pernas/Glúteo</option>
+        </select>
+
+        <label>Status</label>
+        <div class="grupo-checkbox">
+          <label class="chip-checkbox">
+            <input type="radio" name="status" value="em_andamento" checked>
+            <span>Em andamento</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="radio" name="status" value="concluido">
+            <span>Concluído</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <label for="texto-bruto">Cole aqui como foi o treino (texto livre)</label>
+        <textarea id="texto-bruto" placeholder="Ex: senti dor no ombro na última série, supino ficou fácil...">Puxada frontal ficou tranquila, aumentei a carga na segunda série sem dificuldade.</textarea>
+        <button type="button" class="btn btn-secundario espaco-topo" onclick="mostrarAvisoIA()">✨ Analisar com IA</button>
+        <div class="aviso-futuro" id="aviso-ia">
+          <strong>Chega no dia 9:</strong> é aqui que a IA vai ler esse texto e
+          sugerir os sinais (dor, cansaço, facilidade, dificuldade) pra você
+          conferir antes de salvar. Por enquanto, é só um campo de texto.
+        </div>
+      </div>
+
+      <div class="cartao">
+        <label style="margin-top:0">Séries</label>
+
+        <div class="serie-item">
+          <div class="linha-serie">
+            <strong>Série 1</strong>
+            <button type="button" class="remover" onclick="removerSerie(this)">Remover</button>
+          </div>
+          <label>Exercício</label>
+          <select>
+            <option selected>Puxada frontal (costas)</option>
+            <option>Remada curvada (costas)</option>
+            <option>Remada unilateral (costas)</option>
+            <option>Rosca direta (bíceps)</option>
+            <option>Rosca alternada (bíceps)</option>
+          </select>
+          <div class="grade-2">
+            <div>
+              <label>Repetições</label>
+              <input type="number" value="12">
+            </div>
+            <div>
+              <label>Carga (kg)</label>
+              <input type="number" value="48">
+            </div>
+          </div>
+          <label>Observação da série</label>
+          <input type="text" value="Fácil, tranquilo">
+        </div>
+
+        <div class="serie-item">
+          <div class="linha-serie">
+            <strong>Série 2</strong>
+            <button type="button" class="remover" onclick="removerSerie(this)">Remover</button>
+          </div>
+          <label>Exercício</label>
+          <select>
+            <option selected>Puxada frontal (costas)</option>
+            <option>Remada curvada (costas)</option>
+            <option>Remada unilateral (costas)</option>
+            <option>Rosca direta (bíceps)</option>
+            <option>Rosca alternada (bíceps)</option>
+          </select>
+          <div class="grade-2">
+            <div>
+              <label>Repetições</label>
+              <input type="number" value="10">
+            </div>
+            <div>
+              <label>Carga (kg)</label>
+              <input type="number" value="52">
+            </div>
+          </div>
+          <label>Observação da série</label>
+          <input type="text" value="">
+        </div>
+
+        <template id="modelo-serie">
+          <div class="serie-item">
+            <div class="linha-serie">
+              <strong class="numero-serie">Série</strong>
+              <button type="button" class="remover" onclick="removerSerie(this)">Remover</button>
+            </div>
+            <label>Exercício</label>
+            <select>
+              <option selected>Puxada frontal (costas)</option>
+              <option>Remada curvada (costas)</option>
+              <option>Remada unilateral (costas)</option>
+              <option>Rosca direta (bíceps)</option>
+              <option>Rosca alternada (bíceps)</option>
+            </select>
+            <div class="grade-2">
+              <div>
+                <label>Repetições</label>
+                <input type="number" value="">
+              </div>
+              <div>
+                <label>Carga (kg)</label>
+                <input type="number" value="">
+              </div>
+            </div>
+            <label>Observação da série</label>
+            <input type="text" value="">
+          </div>
+        </template>
+
+        <button type="button" class="btn btn-adicionar-serie espaco-topo" onclick="adicionarSerie()">+ Adicionar série</button>
+      </div>
+
+      <button type="submit" class="btn btn-primario">Salvar treino registrado</button>
+      <div class="aviso-futuro" id="aviso-salvar">
+        <strong>Ainda é só aparência:</strong> este treino não é gravado de
+        verdade ainda — isso passa a acontecer quando o banco de dados
+        (Supabase) estiver conectado às telas.
+      </div>
+    </form>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html" class="ativo"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+  <script>
+    function mostrarAvisoSalvar(evento) {
+      evento.preventDefault();
+      document.getElementById('aviso-salvar').classList.add('mostrar');
+      return false;
+    }
+
+    function mostrarAvisoIA() {
+      document.getElementById('aviso-ia').classList.add('mostrar');
+    }
+
+    function adicionarSerie() {
+      const modelo = document.getElementById('modelo-serie');
+      const clone = modelo.content.cloneNode(true);
+      const total = document.querySelectorAll('.serie-item').length + 1;
+      clone.querySelector('.numero-serie').textContent = 'Série ' + total;
+      modelo.parentNode.insertBefore(clone, modelo);
+    }
+
+    function removerSerie(botao) {
+      botao.closest('.serie-item').remove();
+    }
+  </script>
+
+</body>
+</html>

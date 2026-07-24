@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro inicial — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <h1 class="titulo-tela">Cadastro inicial</h1>
+    <p class="subtitulo-tela">Seu objetivo, frequência, restrições e áreas priorizadas — isso alimenta o algoritmo que monta o seu protocolo.</p>
+
+    <form onsubmit="return mostrarAvisoSalvar(event)">
+
+      <div class="cartao">
+        <label>Objetivo</label>
+        <div class="grupo-checkbox">
+          <label class="chip-checkbox">
+            <input type="radio" name="objetivo" value="hipertrofia" checked>
+            <span>Hipertrofia</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="radio" name="objetivo" value="forca">
+            <span>Força</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="radio" name="objetivo" value="emagrecimento">
+            <span>Emagrecimento</span>
+          </label>
+        </div>
+
+        <label for="frequencia">Frequência semanal desejada</label>
+        <input type="number" id="frequencia" min="1" max="7" value="5">
+
+        <label for="lesoes">Lesões / restrições de movimento</label>
+        <textarea id="lesoes">Não posso agachar livre — dor no joelho direito. Evitar impacto direto no ombro esquerdo.</textarea>
+      </div>
+
+      <div class="cartao">
+        <label>Áreas do corpo priorizadas</label>
+        <div class="grupo-checkbox">
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="peito" checked>
+            <span>Peito</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="costas" checked>
+            <span>Costas</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="ombro">
+            <span>Ombro</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="braco">
+            <span>Braço</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="perna">
+            <span>Perna</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="gluteo" checked>
+            <span>Glúteo</span>
+          </label>
+          <label class="chip-checkbox">
+            <input type="checkbox" name="area" value="abdomen">
+            <span>Abdômen</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primario">Salvar cadastro</button>
+
+      <div class="aviso-futuro" id="aviso-salvar">
+        <strong>Ainda é só aparência:</strong> este formulário não grava nada
+        de verdade ainda — isso passa a acontecer quando o banco de dados
+        (Supabase) estiver conectado às telas.
+      </div>
+    </form>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html" class="ativo"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+  <script>
+    function mostrarAvisoSalvar(evento) {
+      evento.preventDefault();
+      document.getElementById('aviso-salvar').classList.add('mostrar');
+      return false;
+    }
+  </script>
+
+</body>
+</html>

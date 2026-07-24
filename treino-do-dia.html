@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treino do dia — Periodiza</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+  .exercicio-planejado {
+    margin-bottom: 16px;
+  }
+
+  .cabecalho-exercicio {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .cabecalho-exercicio .nome {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .cabecalho-exercicio .ordem {
+    color: var(--texto-mudo);
+    font-size: 0.8rem;
+  }
+
+  .alvo-exercicio {
+    color: var(--texto-mudo);
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+
+  .linha-serie-lancamento {
+    display: grid;
+    grid-template-columns: 34px 1fr 1fr 1.4fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .linha-serie-lancamento .num {
+    color: var(--texto-mudo);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .linha-serie-lancamento input {
+    padding: 9px 10px;
+    font-size: 0.9rem;
+  }
+
+  .cabecalho-colunas {
+    display: grid;
+    grid-template-columns: 34px 1fr 1fr 1.4fr;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: var(--texto-mudo);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .cabecalho-colunas span:first-child {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="cadastro-inicial.html" class="marca">Periodi<span>za</span></a>
+    <div class="badge-sessao">
+      Igor Mercado
+      <span class="avatar">IM</span>
+    </div>
+  </header>
+  <div class="faixa-prototipo">Área protegida — sessão de exemplo (o login ainda não confere de verdade)</div>
+
+  <main class="tela">
+    <a href="painel-semana.html" class="btn-texto">← Voltar ao Painel da semana</a>
+    <h1 class="titulo-tela espaco-topo">Treino do dia</h1>
+    <p class="subtitulo-tela">Quinta-feira, 23/07/2026 · Treino B — Costas/Bíceps</p>
+
+    <form onsubmit="return mostrarAvisoSalvar(event)">
+
+      <div class="cartao exercicio-planejado">
+        <div class="cabecalho-exercicio">
+          <span class="nome">1. Puxada frontal</span>
+          <span class="ordem">costas · cabo</span>
+        </div>
+        <div class="alvo-exercicio">Alvo: 3 séries de 10–12 reps · sugestão 48 kg</div>
+        <div class="cabecalho-colunas"><span>Nº</span><span>Reps</span><span>Carga (kg)</span><span>Observação</span></div>
+        <div class="linha-serie-lancamento"><span class="num">1</span><input type="number" value="12"><input type="number" value="48"><input type="text" value="Fácil"></div>
+        <div class="linha-serie-lancamento"><span class="num">2</span><input type="number" value="10"><input type="number" value="52"><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">3</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+      </div>
+
+      <div class="cartao exercicio-planejado">
+        <div class="cabecalho-exercicio">
+          <span class="nome">2. Remada curvada</span>
+          <span class="ordem">costas · barra</span>
+        </div>
+        <div class="alvo-exercicio">Alvo: 3 séries de 8–10 reps · sugestão 50 kg</div>
+        <div class="cabecalho-colunas"><span>Nº</span><span>Reps</span><span>Carga (kg)</span><span>Observação</span></div>
+        <div class="linha-serie-lancamento"><span class="num">1</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">2</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">3</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+      </div>
+
+      <div class="cartao exercicio-planejado">
+        <div class="cabecalho-exercicio">
+          <span class="nome">3. Remada unilateral</span>
+          <span class="ordem">costas · halteres</span>
+        </div>
+        <div class="alvo-exercicio">Alvo: 3 séries de 10–12 reps · sugestão 22 kg</div>
+        <div class="cabecalho-colunas"><span>Nº</span><span>Reps</span><span>Carga (kg)</span><span>Observação</span></div>
+        <div class="linha-serie-lancamento"><span class="num">1</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">2</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">3</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+      </div>
+
+      <div class="cartao exercicio-planejado">
+        <div class="cabecalho-exercicio">
+          <span class="nome">4. Rosca direta</span>
+          <span class="ordem">bíceps · barra</span>
+        </div>
+        <div class="alvo-exercicio">Alvo: 3 séries de 10–12 reps · sugestão 20 kg</div>
+        <div class="cabecalho-colunas"><span>Nº</span><span>Reps</span><span>Carga (kg)</span><span>Observação</span></div>
+        <div class="linha-serie-lancamento"><span class="num">1</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">2</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">3</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+      </div>
+
+      <div class="cartao exercicio-planejado">
+        <div class="cabecalho-exercicio">
+          <span class="nome">5. Rosca alternada</span>
+          <span class="ordem">bíceps · halteres</span>
+        </div>
+        <div class="alvo-exercicio">Alvo: 3 séries de 10–12 reps · sugestão 12 kg (cada lado)</div>
+        <div class="cabecalho-colunas"><span>Nº</span><span>Reps</span><span>Carga (kg)</span><span>Observação</span></div>
+        <div class="linha-serie-lancamento"><span class="num">1</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">2</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+        <div class="linha-serie-lancamento"><span class="num">3</span><input type="number" value=""><input type="number" value=""><input type="text" value=""></div>
+      </div>
+
+      <div class="cartao">
+        <label for="observacao-geral" style="margin-top:0">Como foi o treino (texto livre, opcional)</label>
+        <textarea id="observacao-geral" placeholder="Cole aqui suas observações gerais do treino..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primario">Salvar treino do dia</button>
+      <div class="aviso-futuro" id="aviso-salvar">
+        <strong>Ainda é só aparência:</strong> este lançamento não é gravado de
+        verdade ainda — isso passa a acontecer quando o banco de dados
+        (Supabase) estiver conectado às telas.
+      </div>
+    </form>
+  </main>
+
+  <nav class="bottomnav">
+    <a href="cadastro-inicial.html"><span class="icone">📋</span>Cadastro</a>
+    <a href="painel-semana.html" class="ativo"><span class="icone">📅</span>Semana</a>
+    <a href="caderno-treinos.html"><span class="icone">📓</span>Caderno</a>
+    <a href="evolucao.html"><span class="icone">📈</span>Evolução</a>
+  </nav>
+
+  <script>
+    function mostrarAvisoSalvar(evento) {
+      evento.preventDefault();
+      document.getElementById('aviso-salvar').classList.add('mostrar');
+      return false;
+    }
+  </script>
+
+</body>
+</html>
